@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+         <meta charset="utf-8">
+	     <title>Encriptador</title>
+	     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		 <link rel="stylesheet" href="style.css">
+
+	     <script>
+	     	
+
+
+
+	     	function encriptar(){
+	     		var texto= document.getElementById('elTexto').value;
+
+                var textoArraySplit=Array.from(texto);
+                console.log(textoArraySplit);
+                
+
+                var textoRemplazado="";
+
+                for( var i=0; i<textoArraySplit.length; i++) {
+
+                	if(textoArraySplit[i]==="e"){
+                		
+                		textoRemplazado=textoRemplazado+"enter";
+
+                	}
+                	else if(textoArraySplit[i]==="i"){
+                		 textoRemplazado=textoRemplazado+"imes";             
+                	    }
+
+                	else if(textoArraySplit[i]==="o"){
+                		      textoRemplazado=textoRemplazado+"ober";             
+                	        }
+                	else if(textoArraySplit[i]==="u"){
+                		          textoRemplazado=textoRemplazado+"ufat";             
+                	            }
+
+                	else if(textoArraySplit[i]==="a"){
+                		             textoRemplazado=textoRemplazado+"ai";             
+                	                }
+                    else{
+                    	textoRemplazado=textoRemplazado+textoArraySplit[i];
+                    }
+                }
+
+                //console.log(textoRemplazado);
+                document.getElementById("mostrarTexto").innerHTML=textoRemplazado;
+
+            }
+
+
+
+
+	     	function desencriptar(){
+	     		var texto= document.getElementById('elTexto').value;
+
+                var textoEncriptado=Array.from(texto);
+                console.log(textoEncriptado);
+                
+
+                var textoDesencriptado="";
+
+                for( var i=0; i<textoEncriptado.length; i++) {
+
+                	if(textoEncriptado[i]==="e"){
+                		
+                		textoDesencriptado=textoDesencriptado+ textoEncriptado[i];
+                		i=i+4;
+                	}
+                	else if(textoEncriptado[i]==="i"){
+                		textoDesencriptado=textoDesencriptado+textoEncriptado[i];
+                		i=i+3;           
+                	}
+
+                	else if(textoEncriptado[i]==="o"){
+                		textoDesencriptado=textoDesencriptado+textoEncriptado[i];
+                		i=i+3;             
+                	}
+                	else if(textoEncriptado[i]==="u"){
+                		textoDesencriptado=textoDesencriptado+textoEncriptado[i];
+                		i=i+3;             
+                	}
+
+                	else if(textoEncriptado[i]==="a"){
+                		textoDesencriptado=textoDesencriptado+textoEncriptado[i];
+                		i=i+1;             
+                    }
+                    else{
+                    	textoDesencriptado=textoDesencriptado+textoEncriptado[i];
+                    }
+                }
+
+                //console.log(textoDesencriptado);
+                document.getElementById("mostrarTexto").innerHTML=textoDesencriptado;
+            }
+
+
+
+
+            function copiar(){
+
+
+            	  var copiarTexto = document.getElementById("mostrarTexto").innerHTML;
+
+
+            	   navigator.clipboard.writeText(copiarTexto);
+
+
+            	  console.log(copiarTexto);
+                            	
+            }
+
+
+
+           </script>
+
+   </head>
+   <body>
+	   <img class="logo" src="elementosEncriptador/Logo.png">
+
+
+	   <div class="texto">
+		   <input type="text" id='elTexto' placeholder="ingresa texto" autofocus>
+	  </div>
+
+	  <div class="botones"> 
+		 <input type="button" id='botonEncriptar' value="encriptar" onclick="encriptar();"> 
+		 <input type="button" id='botonDesencriptar' value="desencriptar" onclick="desencriptar();">
+	  </div>
+
+
+         <div class="rectangulo">
+			<span id="mostrarTexto" > </span>
+			
+			<input type="button" id='botonCopiar' value="copiar" onclick="copiar();">
+			
+		</div>
+
+         
+        
+
+    </body>
+</html>
+
